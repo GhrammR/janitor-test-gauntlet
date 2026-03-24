@@ -1,0 +1,16 @@
+name: Janitor Firewall
+on: [pull_request]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Execute Zero-Upload Scan
+        uses: janitor-security/the-janitor@main 
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          installation_id: 118565886
