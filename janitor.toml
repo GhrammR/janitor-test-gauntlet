@@ -1,1 +1,17 @@
-min_slop_score = 10
+# Janitor Sentinel — Structural Firewall Policy
+# Authoritative governance for AI-assisted contributions.
+
+min_slop_score = 100
+require_issue_link = true
+pqc_enforced = true
+allowed_zombies = false
+refactor_bonus = 15
+
+[forge]
+# Exempt internal CI bots from structural penalties
+automation_accounts = [
+  "dependabot",
+  "renovate",
+  "github-actions[bot]",
+  "janitor-sentinel[bot]"
+]
