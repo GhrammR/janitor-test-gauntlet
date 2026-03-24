@@ -1,0 +1,17 @@
+name: Janitor Firewall
+on: [pull_request]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      # This points to the blueprint you just published
+      - name: Execute Zero-Upload Scan
+        uses: janitor-security/the-janitor@main 
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          invert_mode: 'true'
